@@ -1,0 +1,57 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title> Hulk smash? </title>
+  <!-- Materialize: Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+  <!-- Materialize: NECESSARY FOR ICONS -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- WHAT GOOGLE FONTS SHALL WE USE? -->
+  <link href='https://fonts.googleapis.com/css?family=Amatic+SC|Shadows+Into+Light|Limelight|Rock+Salt' rel='stylesheet' type='text/css'>
+  <link rel="styles" href='https://fonts.googleapis.com/css?family=Bungee+Shade' rel='stylesheet' type='text/css'>
+  <link href="styles/main.css">
+
+</head>
+
+
+<body ng-app="ComicApp">
+
+  <!-- ============= NAV BAR ============= -->
+  <!-- BEGINNING OF NAV -->
+  <div ng-include="'./partials/nav.html'"></div>
+  <!-- END OF NAV BAR -->
+
+
+  <!-- ============= MAIN CONTAINER ============= -->
+  <!-- CONTAINER FOR VIEW AND NEW -->
+  <div class="container z-depth-3" ng-view></div>
+  <!-- END OF CONTAINER FOR VIEW AND NEW -->
+
+  <!-- ============= LINK TAGS ============= -->
+  <!-- BEGINNING OF THE DANG LINK TAGS -->
+  <!-- Materialize: jQuery (necessary for Materialize's JavaScript plugins) -->
+  <script src="lib/bower_components/angular/angular.min.js"></script>
+  <script src="lib/bower_components/angular-route/angular-route.min.js"></script>
+  <script src="/lib/bower_components/firebase/firebase.js"></script>
+
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+  <!-- Materialize: Latest compiled and minified JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+  
+  <script src="app/app.js"></script>
+  <script src="/app/values/firebasecreds.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.1.8/angular-materialize.min.js"></script>
+  <!-- APP FIRST -->
+  <!-- FACTORIES SECOND -->
+  <script src="app/factories/SearchDatabaseFactory.js"></script>
+  <script src="/app/factories/LoginRegisterFactory.js"></script>
+  <!-- CONTROLLERS LAST -->
+  <script src="app/controllers/loginRegisterCtrl.js"></script>
+  <script src="app/controllers/searchDatabaseCtrl.js"></script>
+  <!-- END OF THE DANG LINK TAGS -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/bloodhound.min.js"></script>
+
+</body>
+</html>
