@@ -34,9 +34,24 @@ app.factory("SearchDatabaseFactory", function($q, $http) { //the $q injects an A
         });
     };
 
+    let postNewComic = function(newItem) {
+        return $q(function(resolve, reject) {
+            $http.post(`https://comicsapp-db242.firebaseio.com/comics/.json
+`, newItem)
+            // JSON.stringify(newItem))
+            .success(function(ObjFromFirebase) {
+                resolve(ObjFromFirebase);
+            })
+                .error(function(error) {
+                    reject(error);
+                });
+        });
+    };
+
     return {
         comicList: comicList,
-        getComicDetailsFromId: getComicDetailsFromId
+        getComicDetailsFromId: getComicDetailsFromId,
+        postNewComic: postNewComic
     };
 });
 

@@ -3,16 +3,10 @@
 //ngRoute is being injected into the app at this point\\
 
 
-var app = angular.module("ComicApp", ["ngRoute"])
-    // .constant('FirebaseURL', "http://comicsapp-db242.firebaseio.com/");
+var app = angular.module("ComicApp", ["ngRoute"]);
 
 app.config(function($routeProvider, FireCreds) {
 
-    // let authConfig = {
-    //     apiKey: FireCreds.apiKey,
-    //     authDomain: FireCreds.authDomain
-    // };
-    // firebase.initializeApp(authConfig);
 
     $routeProvider.
     when('/login', {

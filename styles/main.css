@@ -1,6 +1,9 @@
-.brand-logo {
-  font-family: "Bungee+Shade"; }
+* {
+  font-family: 'Bungee Shade'; }
 
 img {
   height: 100%;
   width: 100%; }
+
+body {
+  background-color: black; }

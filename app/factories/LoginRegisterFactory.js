@@ -69,7 +69,10 @@ app.run(["$location", "FireCreds", "LoginRegisterFactory",
             storageBucket: FireCreds.storageBucket
         };
 
+
+
         firebase.initializeApp(authConfig);
+
 
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {

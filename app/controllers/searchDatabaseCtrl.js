@@ -1,5 +1,5 @@
 'use strict';
-app.controller("searchDatabaseCtrl", function($scope, SearchDatabaseFactory) {
+app.controller("searchDatabaseCtrl", function($scope, SearchDatabaseFactory, LoginRegisterFactory) {
     $scope.comics = [];
 
     $scope.searchDatabase = function(comicToSearch) {
@@ -9,6 +9,31 @@ app.controller("searchDatabaseCtrl", function($scope, SearchDatabaseFactory) {
             console.log("comicscope", $scope.comics)
         })
     }
+    $scope.Comic = {
+        id: {},
+        name: {},
+        description: {},
+        thumbnail: {},
+    };
+
+    $scope.saveComic = function($indexValueofSumthin) {
+        let clickedComic = $scope.comics[$indexValueofSumthin]
+        let chosenComic = {};
+        chosenComic.name = clickedComic.name;
+        chosenComic.description = clickedComic.description;
+        chosenComic.id = clickedComic.id;
+        chosenComic.thumbnail = clickedComic.thumbnail;
+
+        $scope.Comic.uid = LoginRegisterFactory.getUser();
+        console.log("comscopid", $scope.Comic)
+        SearchDatabaseFactory.postNewComic(chosenComic)
+            .then(function(response) {
+                $location.path("/partials/savedComics");
+                savedComics.getComic();
+                console.log("savedComics", savedComics)
+            });
+    };
+
     ////////////**********I added this as an experiment. trying to get images to populate************\\\\\\\\\\\\\
     // $scope.getComic = function(comics) {
     //     $http({
