@@ -3,23 +3,25 @@
 
 
       <div class="row">
-        <div class="col s4 " ng-repeat="chosenComic in comics">
+        <div class="col s4 " ng-repeat="savedComic in butt" on-last-repeat>
           <div class="card">
+
+            <!-- <div class="card-image">
+              <img class="materialboxed" width="650" ng-src="{{savedComic.thumbnail.path}}/portrait_incredible.jpg">
+            </div> -->
             <div class="card-image">
-              <img class="materialboxed" width="650" ng-src="{{chosenComic.thumbnail.path}}/portrait_incredible.jpg">
+              <img class="materialboxed" data-caption="{{savedComic.name}}" width="650" ng-src="{{savedComic.thumbnail.path}}/portrait_incredible.{{savedComic.thumbnail.extension}}">
               <!-- <span class="card-title"><p><strong>{{comic.name}}</strong></p></span> -->
             </div>
-            <div class="card-content">
-        <span><h5><strong>{{chosenComic.name}}</strong></h5></span>
-      <p>{{chosenComic.description}}</p>
-      <!-- <p><a href="{{comic.resourceURI}}">resource</a></p> -->
-      <!-- <a class="btn-floating btn-medium waves-effect waves-light blue lighten-1" ng-click="saveComic($index)"><i class="material-icons">stars</i></a> -->
-<!-- added stuff to save button -->
 
-      <a class="btn-floating btn-medium waves-effect waves-light red" ng-click="deleteComic(comicId)"><i class="material-icons">not_interested</i></a>
+            <div class="card-content">
+              <span><h5><strong>{{savedComic.name}}</strong></h5></span>
+              <p>{{savedComic.description}}</p>
+              <a class="btn-floating btn-medium waves-effect waves-light red" ng-click="deleteComic(comicId)"><i class="material-icons">not_interested</i></a>
             </div>
+
             <div class="card-action">
-              <a ng-href="{{chosenComic.urls}}/{{url}}/{{type}}/{{$index}}/{{hash}}">wiki</a>
+              <a ng-href="{{savedComic.urls}}/{{url}}/{{type}}/{{$index}}/{{hash}}">wiki</a>
             </div>
           </div>
         </div>

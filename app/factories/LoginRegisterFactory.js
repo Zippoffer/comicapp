@@ -30,7 +30,9 @@ app.factory("LoginRegisterFactory", function() {
     let logout = function() {
         currentUserId = null;
     };
-
+    let setUser = function(uid) {
+        currentUserId = uid;
+    }
     let newUser = function(email, password) {
         return firebase.auth().createUserWithEmailAndPassword(email, password)
             .catch(function(error) {
@@ -54,7 +56,7 @@ app.factory("LoginRegisterFactory", function() {
 
 
     return {
-        authWithProvider, isAuthenticated, getUser, currentUserId, logout, newUser, registeredUser
+        authWithProvider, isAuthenticated, getUser, currentUserId, logout, newUser, registeredUser, setUser
     };
 
 });
@@ -76,10 +78,10 @@ app.run(["$location", "FireCreds", "LoginRegisterFactory",
 
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
-                // LoginRegisterFactory.setUser(user.uid); //set current user on login, switch to main view
+                LoginRegisterFactory.setUser(user.uid); //set current user on login, switch to main view
                 $location.url("/searchDatabase");
             } else {
-                // LoginRegisterFactory.setUser(null); //this is to rest the current user to hide board.
+                LoginRegisterFactory.setUser(null); //this is to rest the current user to hide board.
                 $location.url("/login");
             }
         });

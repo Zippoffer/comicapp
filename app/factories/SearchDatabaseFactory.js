@@ -4,11 +4,8 @@ app.factory("SearchDatabaseFactory", function($q, $http) { //the $q injects an A
 
     let comicList = (searchText) => {
         return $q(function(resolve, reject) {
-            // $http.get(`http://gateway.marvel.com/v1/public/comics?limit=10&format=comic&formatType=comicts=1469737243&apikey=bf48bed3cb9a213603c0267fe6b78a65&hash=44aa3c9d6c0cde7760b59f76cc6599b3`) //the asterix allows for non-specific search
-            // $http.get(`http://gateway.marvel.com:80/v1/public/characters?name=${searchText}&apikey=bf48bed3cb9a213603c0267fe6b78a65`) //the asterix allows for non-specific search
+
             $http.get(`http://gateway.marvel.com:80/v1/public/characters?limit=100&nameStartsWith=${searchText}&=json&apikey=bf48bed3cb9a213603c0267fe6b78a65`) //the asterix allows for non-specific search
-            // $http.get(`http://www.omdbapi.com/?s=${searchText + '*'}&y=&plot=short&r=json`) //the asterix allows for non-specific search
-            // $http.get(`http://swapi.co/api/people/${searchText}/`) //the asterix allows for non-specific search
             .success(function(comicData) {
                 console.log("comics from marvel", comicData);
                 resolve(comicData.data.results);
@@ -23,12 +20,13 @@ app.factory("SearchDatabaseFactory", function($q, $http) { //the $q injects an A
 
 
 
-    let getComicDetailsFromId = (comicId) => { //comicId was comicId\\
+    let getComic = (uid) => {
         return $q(function(resolve, reject) {
-            // $http.get(`http://www.omdbapi.com/?i=${comicId}&plot=short&r=json`)
-            $http.get(`http://www.gateway.marvel.com/?i=${comicId}&Id=json`)
+
+            $http.get(`https://comicsapp-db242.firebaseio.com/comics/.json?orderBy="uid"&equalTo="${uid}"`)
                 .success(function(comicData) {
                     resolve(comicData);
+                    console.log("comicData", comicData)
                 })
                 .error(function(error) {
                     reject(error);
@@ -36,10 +34,11 @@ app.factory("SearchDatabaseFactory", function($q, $http) { //the $q injects an A
         });
     };
 
+
+
     let postNewComic = function(newItem) {
         return $q(function(resolve, reject) {
-            $http.post(`https://comicsapp-db242.firebaseio.com/comics/.json
-`, newItem)
+            $http.post(`https://comicsapp-db242.firebaseio.com/comics/.json`, newItem)
             // JSON.stringify(newItem))
             .success(function(ObjFromFirebase) {
                 resolve(ObjFromFirebase);
@@ -54,9 +53,7 @@ app.factory("SearchDatabaseFactory", function($q, $http) { //the $q injects an A
     var deleteComic = function(comicID) {
         console.log(comicID, "this is a deleted comic");
         return $q((resolve, reject) => {
-            $http.delete(
-                `${FirebaseURL}/comics/${comicID}.json`
-            )
+            $http.delete(`${FirebaseURL}/comics/${comicID}.json`)
                 .success((data) => {
                     resolve(data);
                 })
@@ -70,7 +67,7 @@ app.factory("SearchDatabaseFactory", function($q, $http) { //the $q injects an A
 
     return {
         comicList: comicList,
-        getComicDetailsFromId: getComicDetailsFromId,
+        getComic: getComic,
         postNewComic: postNewComic,
         deleteComic: deleteComic
     };
@@ -149,7 +146,8 @@ app.factory("SearchDatabaseFactory", function($q, $http) { //the $q injects an A
 
 //     let movieList = (searchText) => {
 //         return $q(function(resolve, reject) {
-//             $http.get(`http://gateway.marvel.com/v1/public/comics?limit=100&format=comic&formatType=comicts=1469737243&apikey=bf48bed3cb9a213603c0267fe6b78a65&hash=44aa3c9d6c0cde7760b59f76cc6599b3`) //the asterix allows for non-specific search
+//             $http.get(`
+// http: //gateway.marvel.com/v1/public/comics?limit=100&format=comic&formatType=comicts=1469737243&apikey=bf48bed3cb9a213603c0267fe6b78a65&hash=44aa3c9d6c0cde7760b59f76cc6599b3`) //the asterix allows for non-specific search
 //             // $http.get(`http://gateway.marvel.com:80/v1/public/characters?apikey=bf48bed3cb9a213603c0267fe6b78a65`) //the asterix allows for non-specific search
 //             // $http.get(`http://www.omdbapi.com/?s=${searchText + '*'}&y=&plot=short&r=json`) //the asterix allows for non-specific search
 //             // $http.get(`http swapi.co/api/planets/1/`) //the asterix allows for non-specific search

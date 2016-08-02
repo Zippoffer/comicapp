@@ -1,23 +1,22 @@
-// "use strict";
+"use strict";
 
-// app.controller("savedComicCtrl", function($scope, savedComics, $location, LoginRegisterFactory, searchDatabase) {
+app.controller("savedComicCtrl", function($scope, $location, LoginRegisterFactory, SearchDatabaseFactory) {
 
-//     $scope.Comic = {
-//         uid: null,
-//         title: "",
-//         date: null,
-//         tags: "",
-//     };
+    $scope.$on('onRepeatLast', function(scope, element, attrs) {
+        $('.materialboxed').materialbox();
+    });
 
-//     $scope.saveComic = function() {
-//         $scope.Comic.uid = LoginRegisterFactory.getUser();
-//         console.log("comscopid", $scope.Comic)
-//         savedComics.postComic($scope.Comic)
-//             .then(function(response) {
-//                 $location.path("/partials/savedComics");
-//                 savedComics.getComic();
-//                 console.log("savedComics", savedComics)
-//             });
-//     };
+    $scope.loadSavedComic = function() {
+        // $scope.Comic.uid = LoginRegisterFactory.getUser();
 
-// });
+        SearchDatabaseFactory.getComic(LoginRegisterFactory.getUser())
+            .then(function(response) {
+                console.log("response", response)
+                $scope.butt = response;
+                //     $location.path("/partials/savedComics");
+                //     SearchDatabaseFactory.getComic();
+                //     console.log("savedComics", savedComics)
+            });
+    };
+    $scope.loadSavedComic();
+});

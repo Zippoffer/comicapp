@@ -1,15 +1,19 @@
-    ///*****attempt at getting materialbox to work********\\\
-    
+'use strict';
+
+///*****attempt at getting materialbox to work********\\\
+
+/////////************angular directive****************\\\\\\\\\
+
 app.directive('onLastRepeat', function() {
-  return function(scope, element, attrs) {
-    if (scope.$last)
-      setTimeout(function() {
-        scope.$emit('onRepeatLast', element, attrs);
-    }, 1);
-  };
+    return function(scope, element, attrs) {
+        if (scope.$last)
+            setTimeout(function() {
+                scope.$emit('onRepeatLast', element, attrs);
+            }, 1);
+    };
 });
 
 
-    // $scope.materialBox = (function() {
-    //     $('.materialboxed').materialbox();
-    // })();
+// $scope.materialBox = (function() {
+//     $('.materialboxed').materialbox();
+// })();
