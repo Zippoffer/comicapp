@@ -2,6 +2,14 @@
 app.controller("searchDatabaseCtrl", function($scope, SearchDatabaseFactory, $location, LoginRegisterFactory) {
     $scope.comics = [];
     $scope.uid = LoginRegisterFactory.getUser();
+    $scope.Comic = {};
+
+
+    $scope.$on('onRepeatLast', function(scope, element, attrs) {
+        $('.materialboxed').materialbox();
+    });
+
+
     $scope.searchDatabase = function(comicToSearch) {
         SearchDatabaseFactory.comicList(comicToSearch).then(function(comicData) {
             console.log("in the controller i see comic data...", comicData);
@@ -11,59 +19,28 @@ app.controller("searchDatabaseCtrl", function($scope, SearchDatabaseFactory, $lo
     }
 
 
-    $scope.$on('onRepeatLast', function(scope, element, attrs) {
-        $('.materialboxed').materialbox();
-    });
+    $scope.saveComic = function($indexValueofSumthin, savedComics) {
 
-
-    $scope.Comic = {
-        id: {},
-        name: {},
-        description: {},
-        thumbnail: {},
-        date: null,
-    };
-
-    $scope.saveComic = function($indexValueofSumthin, savedComics, $location) {
         let clickedComic = $scope.comics[$indexValueofSumthin]
         let chosenComic = {};
+        console.log("$indexValueofSumthin", $indexValueofSumthin)
         chosenComic.name = clickedComic.name;
         chosenComic.description = clickedComic.description;
         chosenComic.id = clickedComic.id;
         chosenComic.thumbnail = clickedComic.thumbnail;
+        chosenComic.uid = LoginRegisterFactory.getUser();
+        chosenComic.date = Date();
 
-        $scope.Comic.uid = LoginRegisterFactory.getUser();
-        $scope.Comic.date = Date();
         console.log("comscopid", $scope.Comic)
         // SearchDatabaseFactory.postNewComic($scope.Comic)
         SearchDatabaseFactory.postNewComic(chosenComic)
-            .then(function(response) {
-                $location.path("/partials/savedComics");
-                savedComics.getComic();
-                console.log("savedComics", savedComics)
-            });
+        // .then(function(response) {
+        //     $location.path("/partials/savedComics");
+        //     SearchDatabaseFactory.getComic();
+        //     console.log("savedComics", savedComics)
+        // });
+        console.log("chosenComic", chosenComic)
     };
-
-
-
-
-    /////////delete functions to be\\\\\\\\\\\\\\\\\\\\\\\\
-
-
-
-    if (LoginRegisterFactory.isAuthenticated()) {
-        SearchDatabaseFactory.getComic($scope.uid)
-            .then(function(savedComics) {
-                $scope.comics = savedComics;
-
-                $scope.chosenComic = $scope.comics.filter(function(comic) {
-                    return comic.id === $routeParams.comicId;
-                })[0];
-            });
-    } else {}
-
-
-
 
     $scope.deleteComicCall = function(comic) {
         SearchDatabaseFactory.deleteComic(comic)
@@ -77,25 +54,49 @@ app.controller("searchDatabaseCtrl", function($scope, SearchDatabaseFactory, $lo
             });
     };
 
-    ////still working on delete functionality\\\\\\\\\
-
-    // $scope.addNewcomic = function() {
-    //     $scope.newBoard.uid = AuthFactory.getUser();
-    //     $scope.newBoard.date = Date();
-    //     ItemStorage.postNewBoard($scope.newBoard)
-    //         .then(function(response) {
-    //             $location.path("/partials/mainboard");
-    //             ItemStorage.getBoards();
-    //         });
-    // };
-
-
-
-
 })
 
+/////////delete functions to be\\\\\\\\\\\\\\\\\\\\\\\\
 
 
+
+// if (LoginRegisterFactory.isAuthenticated()) {
+//     SearchDatabaseFactory.getComic($scope.uid)
+//         .then(function(savedComics) {
+//             $scope.comics = savedComics;
+
+//             $scope.chosenComic = $scope.comics.filter(function(comic) {
+//                 return comic.id === $routeParams.comicId;
+//             })[0];
+//         });
+// } else {}
+
+
+
+
+
+////still working on delete functionality\\\\\\\\\
+
+// $scope.addNewcomic = function() {
+//     $scope.newBoard.uid = AuthFactory.getUser();
+//     $scope.newBoard.date = Date();
+//     ItemStorage.postNewBoard($scope.newBoard)
+//         .then(function(response) {
+//             $location.path("/partials/mainboard");
+//             ItemStorage.getBoards();
+//         });
+// };
+
+
+
+
+
+
+// id: {},
+// name: {},
+// description: {},
+// thumbnail: {},
+// date: null
 
 
 
