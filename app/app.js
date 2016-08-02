@@ -22,8 +22,8 @@ app.config(function($routeProvider, FireCreds) {
         controller: 'searchDatabaseCtrl'
     })
 
-
 });
+
 
 
 

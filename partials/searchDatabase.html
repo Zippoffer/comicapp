@@ -19,11 +19,11 @@
 <!-- ============= CARDS TO HOLD COMICS ============= -->
 
       <div class="row">
-        <div class="col s4 " ng-repeat="comic in comics">
+        <div class="col s4 " ng-repeat="comic in comics" on-last-repeat>
           <div class="card">
             <div class="card-image">
-              <img class="materialboxed" width="650" ng-src="{{comic.thumbnail.path}}/portrait_incredible.jpg">
-              <span class="card-title"><p><strong>{{comic.name}}</strong></p></span>
+              <img class="materialboxed" data-caption="{{comic.name}}" width="650" ng-src="{{comic.thumbnail.path}}/portrait_incredible.jpg">
+              <!-- <span class="card-title"><p><strong>{{comic.name}}</strong></p></span> -->
             </div>
             <div class="card-content">
         <span><h5><strong>{{comic.name}}</strong></h5></span>

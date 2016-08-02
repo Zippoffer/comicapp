@@ -1,34 +1,28 @@
 <!-- this is where I would like my saved cards to display -->
-<div ng-include="'./partials/nav.html'"></div>
-
-
-<div class="container z-depth-3" ng-view>hello</div>
-
-
-<div ng-include="'./partials/footer.html'"></div>
 
 
 
+      <div class="row">
+        <div class="col s4 " ng-repeat="chosenComic in comics">
+          <div class="card">
+            <div class="card-image">
+              <img class="materialboxed" width="650" ng-src="{{chosenComic.thumbnail.path}}/portrait_incredible.jpg">
+              <!-- <span class="card-title"><p><strong>{{comic.name}}</strong></p></span> -->
+            </div>
+            <div class="card-content">
+        <span><h5><strong>{{chosenComic.name}}</strong></h5></span>
+      <p>{{chosenComic.description}}</p>
+      <!-- <p><a href="{{comic.resourceURI}}">resource</a></p> -->
+      <!-- <a class="btn-floating btn-medium waves-effect waves-light blue lighten-1" ng-click="saveComic($index)"><i class="material-icons">stars</i></a> -->
+<!-- added stuff to save button -->
 
-<!-- ============= SEARCH BAR ============= -->
-<div class="row">
-  <form id="databaseSearch">
-    <input type="text" placeholder="Search comic database..." class="col s9 offset-s1">
-    <button class="waves-effect waves-light btn-floating teal btn"><i class="material-icons">search</i></button>
-  </form>
-</div>
+      <a class="btn-floating btn-medium waves-effect waves-light red" ng-click="deleteComic(comicId)"><i class="material-icons">not_interested</i></a>
+            </div>
+            <div class="card-action">
+              <a ng-href="{{chosenComic.urls}}/{{url}}/{{type}}/{{$index}}/{{hash}}">wiki</a>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
-<!-- ============= comic CARDS FOR USER'S WATCHLIST ============= -->
-<div class="row">
-  <div class="card">
-    <div class="card-image">
-      <img src="PUT_COMIC_IMG_HERE">
-    </div>
-    <div class="card-content red accent-4">
-      <p>PUT_WATCHLIST_COMIC_TITLE_HERE</p>
-      <p>PUT_WATCHLIST_COMIC_TYPE_HERE</p>
-      <p>PUT_WATCHLIST_COMIC_YEAR_HERE</p>
-    </div>
-  </div>
-</div>

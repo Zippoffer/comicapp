@@ -8,11 +8,13 @@ app.controller("searchDatabaseCtrl", function($scope, SearchDatabaseFactory, $lo
             $scope.comics = comicData;
             console.log("comicscope", $scope.comics)
         })
-        /////*****attempt at getting materialbox to work********\\\
-        // $(document).ready(function() {
-        //     $('.materialboxed').materialbox();
-        // });
     }
+
+
+    $scope.$on('onRepeatLast', function(scope, element, attrs) {
+        $('.materialboxed').materialbox();
+    });
+
 
     $scope.Comic = {
         id: {},
@@ -89,17 +91,6 @@ app.controller("searchDatabaseCtrl", function($scope, SearchDatabaseFactory, $lo
 
 
 
-    ////////////**********I added this as an experiment. trying to get images to populate************\\\\\\\\\\\\\
-    // $scope.getComic = function(comics) {
-    //     $http({
-    //         url: `http://gateway.marvel.com:80/v1/public/characters?nameStartsWith=${searchText}&=json&apikey=bf48bed3cb9a213603c0267fe6b78a65`
-    //     })
-    //         .then(function(response) {
-    //             comics.imgUrl = response.data.thumbnail;
-    //         });
-    //     return "/img/thumbnail.jpg";
-    // };
-    //////////////////**************************************************\\\\\\\\\\\\\\\\\\\\
 
 })
 
