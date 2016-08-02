@@ -1,25 +1,28 @@
-<nav ng-controller="loginRegisterCtrl">
-  <div class="nav-wrapper blue lighten-1">
-          <a class="brand-logo">Yeeap</a>
+<nav ng-controller="loginRegisterCtrl" class="white container">
+  <div class="nav-wrapper  red darken-1">
+          <a class="brand-logo"><img src="http://www.ipadartroom.com/wp-content/uploads/2013/06/mzm.hkrpmtpr.175x175-75-150x150.jpg" alt="Yeeap"></a>
 
         <ul id="nav-mobile" class="right">
 
           <li>
-            <a ng-href="#/searchDatabase" ng-click="searchDatabase"><i class="material-icons left">search</i>Search Comics</a>
-          </li>
-
-          <!-- <li> -->
-            <!-- <a ng-href="#/watchlist"><i class="material-icons left">local_movies</i>Watch List</a></li> -->
-          <li >
-            <a ng-href="#/logout" ng-click="logout()"><i class="material-icons left">perm_identity</i>Logout</a>
+            <a ng-href="#/searchDatabase" ng-click="searchDatabase()"><i class="material-icons left">search</i></a>
           </li>
 
           <li>
-            <a ng-href="#/login" ng-click="login()"><i class="material-icons left">perm_identity</i>Login</a></li>
+            <a ng-href="#/savedComics"><i class="material-icons left">view_quilt</i>Saved Comics</a></li>
+          <li >
+
+            <a ng-click="logout()"><i class="material-icons left">perm_identity</i>Logout</a>
+          </li>
+
+          <li>
+            <a  ng-click="login()"><i class="material-icons left">perm_identity</i>Login</a></li>
 
         </ul>
   </div>
 </nav>
 
 
- 
+<!--  ng-href="#/logout" 
+ ng-href="#/login" -->
+   <!-- button-collapse -->

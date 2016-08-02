@@ -1,9 +1,29 @@
-.brand-logo {
-	font-family: "Bungee+Shade";
+* {
+	font-family: 'Bungee Shade';
 }
 
 img {
 	height: 100%;
 	width: 100%;
+}
+
+body {
+	background-color: black;
+	opacity: 4;
+	margin-top: 2%;
+}
+ .brand-logo img {
+    height: 60px;
+    width: 60px;
+    position: relative;
+}
+
+.nav-wrapper {
+	box-shadow: 0 2px 10px black;
+}
+
+
+.card-image {
+	box-shadow: 0 2px 10px black;
 }
 

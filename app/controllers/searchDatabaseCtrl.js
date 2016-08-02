@@ -1,7 +1,7 @@
 'use strict';
-app.controller("searchDatabaseCtrl", function($scope, SearchDatabaseFactory) {
+app.controller("searchDatabaseCtrl", function($scope, SearchDatabaseFactory, $location, LoginRegisterFactory) {
     $scope.comics = [];
-
+    $scope.uid = LoginRegisterFactory.getUser();
     $scope.searchDatabase = function(comicToSearch) {
         SearchDatabaseFactory.comicList(comicToSearch).then(function(comicData) {
             console.log("in the controller i see comic data...", comicData);
@@ -9,17 +9,89 @@ app.controller("searchDatabaseCtrl", function($scope, SearchDatabaseFactory) {
             console.log("comicscope", $scope.comics)
         })
     }
-    ////////////**********I added this as an experiment. trying to get images to populate************\\\\\\\\\\\\\
-    // $scope.getComic = function(comics) {
-    //     $http({
-    //         url: `http://gateway.marvel.com:80/v1/public/characters?nameStartsWith=${searchText}&=json&apikey=bf48bed3cb9a213603c0267fe6b78a65`
-    //     })
+
+
+    $scope.$on('onRepeatLast', function(scope, element, attrs) {
+        $('.materialboxed').materialbox();
+    });
+
+
+    $scope.Comic = {
+        id: {},
+        name: {},
+        description: {},
+        thumbnail: {},
+        date: null,
+    };
+
+    $scope.saveComic = function($indexValueofSumthin, savedComics, $location) {
+        let clickedComic = $scope.comics[$indexValueofSumthin]
+        let chosenComic = {};
+        chosenComic.name = clickedComic.name;
+        chosenComic.description = clickedComic.description;
+        chosenComic.id = clickedComic.id;
+        chosenComic.thumbnail = clickedComic.thumbnail;
+
+        $scope.Comic.uid = LoginRegisterFactory.getUser();
+        $scope.Comic.date = Date();
+        console.log("comscopid", $scope.Comic)
+        // SearchDatabaseFactory.postNewComic($scope.Comic)
+        SearchDatabaseFactory.postNewComic(chosenComic)
+            .then(function(response) {
+                $location.path("/partials/savedComics");
+                savedComics.getComic();
+                console.log("savedComics", savedComics)
+            });
+    };
+
+
+
+
+    /////////delete functions to be\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+    if (LoginRegisterFactory.isAuthenticated()) {
+        SearchDatabaseFactory.getComic($scope.uid)
+            .then(function(savedComics) {
+                $scope.comics = savedComics;
+
+                $scope.chosenComic = $scope.comics.filter(function(comic) {
+                    return comic.id === $routeParams.comicId;
+                })[0];
+            });
+    } else {}
+
+
+
+
+    $scope.deleteComicCall = function(comic) {
+        SearchDatabaseFactory.deleteComic(comic)
+            .then((savedComics) => {
+                $scope.comics = savedComics;
+                $location.path("/partials/SearchDatabase");
+                SearchDatabaseFactory.getComic()
+                    .then((savedComics) => {
+                        $scope.comics = savedComics;
+                    });
+            });
+    };
+
+    ////still working on delete functionality\\\\\\\\\
+
+    // $scope.addNewcomic = function() {
+    //     $scope.newBoard.uid = AuthFactory.getUser();
+    //     $scope.newBoard.date = Date();
+    //     ItemStorage.postNewBoard($scope.newBoard)
     //         .then(function(response) {
-    //             comics.imgUrl = response.data.thumbnail;
+    //             $location.path("/partials/mainboard");
+    //             ItemStorage.getBoards();
     //         });
-    //     return "/img/thumbnail.jpg";
     // };
-    //////////////////**************************************************\\\\\\\\\\\\\\\\\\\\
+
+
+
+
 })
 
 
