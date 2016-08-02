@@ -16,6 +16,10 @@ app.config(function($routeProvider, FireCreds) {
     when('/searchDatabase', {
         templateUrl: 'partials/searchDatabase.html',
         controller: 'searchDatabaseCtrl'
+    }).
+    when('/ComicApp/savedComics', {
+        templateUrl: 'partials/savedComics.html',
+        controller: 'searchDatabaseCtrl'
     })
 
 
