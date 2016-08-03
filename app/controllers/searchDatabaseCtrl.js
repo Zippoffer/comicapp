@@ -19,7 +19,7 @@ app.controller("searchDatabaseCtrl", function($scope, SearchDatabaseFactory, $lo
     }
 
 
-    $scope.saveComic = function($indexValueofSumthin, savedComics) {
+    $scope.saveComic = function($indexValueofSumthin, savedComics, ObjFromFirebase) {
 
         let clickedComic = $scope.comics[$indexValueofSumthin]
         let chosenComic = {};
@@ -30,6 +30,7 @@ app.controller("searchDatabaseCtrl", function($scope, SearchDatabaseFactory, $lo
         chosenComic.thumbnail = clickedComic.thumbnail;
         chosenComic.uid = LoginRegisterFactory.getUser();
         chosenComic.date = Date();
+        // console.log("ObjFromFirebase", )
 
         console.log("comscopid", $scope.Comic)
         // SearchDatabaseFactory.postNewComic($scope.Comic)
@@ -42,17 +43,17 @@ app.controller("searchDatabaseCtrl", function($scope, SearchDatabaseFactory, $lo
         console.log("chosenComic", chosenComic)
     };
 
-    $scope.deleteComicCall = function(comic) {
-        SearchDatabaseFactory.deleteComic(comic)
-            .then((savedComics) => {
-                $scope.comics = savedComics;
-                $location.path("/partials/SearchDatabase");
-                SearchDatabaseFactory.getComic()
-                    .then((savedComics) => {
-                        $scope.comics = savedComics;
-                    });
-            });
-    };
+    // $scope.deleteComicCall = function(comic) {
+    //     SearchDatabaseFactory.deleteComic(comic)
+    //         .then((savedComics) => {
+    //             $scope.comics = savedComics;
+    //             $location.path("/partials/SearchDatabase");
+    //             SearchDatabaseFactory.getComic()
+    //                 .then((savedComics) => {
+    //                     $scope.comics = savedComics;
+    //                 });
+    //         });
+    // };
 
 })
 
