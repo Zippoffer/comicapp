@@ -1,6 +1,9 @@
 "use strict";
 
-app.factory("SearchDatabaseFactory", function($q, $http) { //the $q injects an Angular promise
+app.factory("SearchDatabaseFactory", function($routeParams, $q, $http, LoginRegisterFactory) { //the $q injects an Angular promise
+
+
+
 
     let comicList = (searchText) => {
         return $q(function(resolve, reject) {
@@ -36,24 +39,32 @@ app.factory("SearchDatabaseFactory", function($q, $http) { //the $q injects an A
 
 
 
-    let postNewComic = function(newItem) {
+    let postNewComic = (chosenComic) => {
         return $q(function(resolve, reject) {
-            $http.post(`https://comicsapp-db242.firebaseio.com/comics/.json`, newItem)
-            // JSON.stringify(newItem))
+            $http.post(`https://comicsapp-db242.firebaseio.com/comics/.json`, chosenComic)
+            // JSON.stringify(chosenComic))
             .success(function(ObjFromFirebase) {
-                resolve(ObjFromFirebase);
+                console.log("comDat", ObjFromFirebase.name)
+                let chosenComicId = ObjFromFirebase.name;
+                // chosenComic.ComicId = chosenComicId;
+                // $http.patch(`https://comicsapp-db242.firebaseio.com/comics/.json/Comics/${chosenComicId}.json`, chosenComic);
             })
-                .error(function(error) {
-                    reject(error);
-                });
         });
     };
+
+    /////this was in postNewComic\\\\\\\
+    // resolve(ObjFromFirebase);
+    // .error(function(error) {
+    //     reject(error);
+    // });
+
+
     ///////////*****still working on delete functionality**********\\\\\\\\\\\
 
-    var deleteComic = function(comicID) {
-        console.log(comicID, "this is a deleted comic");
+    var deleteComic = (comic, FirebaseURL) => {
+        console.log("this is a deleted comic", comic);
         return $q((resolve, reject) => {
-            $http.delete(`${FirebaseURL}/comics/${comicID}.json`)
+            $http.delete(`https://comicsapp-db242.firebaseio.com/comics/${comic}.json`)
                 .success((data) => {
                     resolve(data);
                 })

@@ -1,5 +1,5 @@
 * {
-  font-family: 'Bungee Shade'; }
+  font-family: 'Slackey', cursive; }
 
 img {
   height: 100%;
@@ -16,7 +16,8 @@ body {
   position: relative; }
 
 .nav-wrapper {
-  box-shadow: 0 2px 10px black; }
+  box-shadow: 0 2px 10px black;
+  background-image: url(""); }
 
 .card-image {
   box-shadow: 0 2px 10px black; }
