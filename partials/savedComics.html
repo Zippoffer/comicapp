@@ -1,6 +1,6 @@
 <!-- this is where I would like my saved cards to display -->
 
-
+<div class="row"></div>
 
       <div class="row">
         <div class="col s4 " ng-repeat="savedComic in butt" on-last-repeat>
@@ -19,7 +19,6 @@
               <p>{{savedComic.description}}</p>
               <a class="btn-floating btn-medium waves-effect waves-light red" ng-click="deleteComicCall(savedComic)"><i class="material-icons">not_interested</i></a>
             </div>
-
             <div class="card-action">
               <a ng-href="{{savedComic.urls}}/{{url}}/{{type}}/{{$index}}/{{hash}}">wiki</a>
             </div>

@@ -10,6 +10,25 @@ app.controller("searchDatabaseCtrl", function($scope, SearchDatabaseFactory, $lo
     });
 
 
+    // I need to pass the navbar data into this\\\
+    // $(".button-collapse").sideNav()
+    $(document).ready(function() {
+        // Activate the side menu 
+        $(".button-collapse").sideNav();
+    });
+
+
+
+    // $('.button-collapse').sideNav({
+    //     menuWidth: 300, // Default is 240
+    //     edge: 'left', // Choose the horizontal origin
+    //     closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    // });
+
+
+
+
+
     $scope.searchDatabase = function(comicToSearch) {
         SearchDatabaseFactory.comicList(comicToSearch).then(function(comicData) {
             console.log("in the controller i see comic data...", comicData);
