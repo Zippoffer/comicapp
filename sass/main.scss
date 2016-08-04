@@ -1,6 +1,7 @@
 * {
 	// font-family: 'Indie Flower', cursive;
 	font-family: 'Slackey', cursive;
+	// font-family: 'Bungee Shade', cursive;
 }
 
 img {
@@ -30,4 +31,21 @@ body {
 	
 	height: 580px;
 	overflow: scroll;
+}
+
+.spiderman {
+	height: 190px;
+    width: 100%;
+}
+#description{
+	font-size: .25em;
+    // background:#000;
+    // height:100px;
+    // transition:height 0s 10000s;
+}
+#description:focus{
+	zoom: 400%;
+    // height:200px;
+    // outline:0;
+    // transition:height 0s;
 }

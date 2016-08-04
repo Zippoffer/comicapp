@@ -10,21 +10,33 @@ app.controller("searchDatabaseCtrl", function($scope, SearchDatabaseFactory, $lo
     });
 
 
-    // I need to pass the navbar data into this\\\
-    // $(".button-collapse").sideNav()
-    $(document).ready(function() {
-        // Activate the side menu 
+    ////////////*************AUTOCOMPLETE?**************\\\\\\\\\\\\\\\
+    // (function($scope, SearchDatabaseFactory, comicToSearch) {
+    //     $('input.autocomplete').autocomplete;
+    //     return {
+    //         SearchDatabase: function() {
+    //             return comicToSearch;
+    //         }
+    //     }
+    // })();
+
+
+    // (function() {
+    //     $('#remote .typeahead').typeahead(null, {
+    //         name: 'gathered-comics',
+    //         display: 'value',
+    //         source: SearchDatabaseFactory.gatheredComics
+    //     });
+    // })();
+
+
+
+
+    (function() {
+
         $(".button-collapse").sideNav();
-    });
 
-
-
-    // $('.button-collapse').sideNav({
-    //     menuWidth: 300, // Default is 240
-    //     edge: 'left', // Choose the horizontal origin
-    //     closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-    // });
-
+    })();
 
 
 
@@ -35,6 +47,7 @@ app.controller("searchDatabaseCtrl", function($scope, SearchDatabaseFactory, $lo
             $scope.comics = comicData;
             console.log("comicscope", $scope.comics)
         })
+
     }
 
 

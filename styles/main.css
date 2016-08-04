@@ -21,3 +21,13 @@ body {
 .card {
   height: 580px;
   overflow: scroll; }
+
+.spiderman {
+  height: 190px;
+  width: 100%; }
+
+#description {
+  font-size: .25em; }
+
+#description:focus {
+  zoom: 400%; }
