@@ -10,26 +10,24 @@ app.controller("searchDatabaseCtrl", function($scope, SearchDatabaseFactory, $lo
     });
 
 
-    ////////////*************AUTOCOMPLETE?**************\\\\\\\\\\\\\\\
-    // (function($scope, SearchDatabaseFactory, comicToSearch) {
-    //     $('input.autocomplete').autocomplete;
-    //     return {
-    //         SearchDatabase: function() {
-    //             return comicToSearch;
-    //         }
-    //     }
-    // })();
 
+    $scope.$on('onRepeatLast', function(scope, element, attrs) {
+        $('.modal-trigger').leanModal({
+            dismissible: true, // Modal can be dismissed by clicking outside of the modal
+            opacity: .5, // Opacity of modal background
+            in_duration: 300, // Transition in duration
+            out_duration: 200, // Transition out duration
+            starting_top: '4%', // Starting top style attribute
+            ending_top: '10%', // Ending top style attribute
+            // ready: function() {
+            //     alert('Ready');
+            // }, // Callback for Modal open
+            // complete: function() {
+            //     alert('Closed');
+            // } // Callback for Modal close
+        });
 
-    // (function() {
-    //     $('#remote .typeahead').typeahead(null, {
-    //         name: 'gathered-comics',
-    //         display: 'value',
-    //         source: SearchDatabaseFactory.gatheredComics
-    //     });
-    // })();
-
-
+    });
 
 
     (function() {
@@ -75,73 +73,6 @@ app.controller("searchDatabaseCtrl", function($scope, SearchDatabaseFactory, $lo
         console.log("chosenComic", chosenComic)
     };
 
-    // $scope.deleteComicCall = function(comic) {
-    //     SearchDatabaseFactory.deleteComic(comic)
-    //         .then((savedComics) => {
-    //             $scope.comics = savedComics;
-    //             $location.path("/partials/SearchDatabase");
-    //             SearchDatabaseFactory.getComic()
-    //                 .then((savedComics) => {
-    //                     $scope.comics = savedComics;
-    //                 });
-    //         });
-    // };
+
 
 })
-
-/////////delete functions to be\\\\\\\\\\\\\\\\\\\\\\\\
-
-
-
-// if (LoginRegisterFactory.isAuthenticated()) {
-//     SearchDatabaseFactory.getComic($scope.uid)
-//         .then(function(savedComics) {
-//             $scope.comics = savedComics;
-
-//             $scope.chosenComic = $scope.comics.filter(function(comic) {
-//                 return comic.id === $routeParams.comicId;
-//             })[0];
-//         });
-// } else {}
-
-
-
-
-
-////still working on delete functionality\\\\\\\\\
-
-// $scope.addNewcomic = function() {
-//     $scope.newBoard.uid = AuthFactory.getUser();
-//     $scope.newBoard.date = Date();
-//     ItemStorage.postNewBoard($scope.newBoard)
-//         .then(function(response) {
-//             $location.path("/partials/mainboard");
-//             ItemStorage.getBoards();
-//         });
-// };
-
-
-
-
-
-
-// id: {},
-// name: {},
-// description: {},
-// thumbnail: {},
-// date: null
-
-
-
-// 'use strict';
-
-// app.controller("searchDatabaseCtrl", function($scope, SearchDatabaseFactory) {
-//     $scope.movies = [];
-
-//     $scope.searchDatabase = function(movieToSearch) {
-//         SearchDatabaseFactory.movieList(movieToSearch).then(function(movieData) {
-//             console.log("in the controller i see movie data...", movieData);
-//             $scope.movies = movieData.Search;
-//         })
-//     }
-// })

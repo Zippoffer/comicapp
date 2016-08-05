@@ -19,7 +19,7 @@ body {
   box-shadow: 0 2px 10px black; }
 
 .card {
-  height: 580px;
+  height: 650px;
   overflow: scroll; }
 
 .spiderman {
@@ -30,4 +30,12 @@ body {
   font-size: .25em; }
 
 #description:focus {
-  zoom: 400%; }
+  zoom: 400%;
+  outline: none; }
+
+#savedDescription {
+  font-size: .25em; }
+
+#savedDescription:focus {
+  zoom: 400%;
+  outline: none; }

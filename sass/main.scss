@@ -29,7 +29,7 @@ body {
 
 .card {
 	
-	height: 580px;
+	height: 650px;
 	overflow: scroll;
 }
 
@@ -37,15 +37,23 @@ body {
 	height: 190px;
     width: 100%;
 }
+
+.card-action {
+
+}
 #description{
 	font-size: .25em;
-    // background:#000;
-    // height:100px;
-    // transition:height 0s 10000s;
 }
 #description:focus{
 	zoom: 400%;
-    // height:200px;
-    // outline:0;
-    // transition:height 0s;
+	outline: none;
 }
+
+#savedDescription{
+	font-size: .25em;
+}
+#savedDescription:focus{
+	zoom: 400%;
+	outline: none;
+}
+
