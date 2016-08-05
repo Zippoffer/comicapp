@@ -1,6 +1,6 @@
 <!-- this is where I would like my saved cards to display -->
 
-
+<div class="row"></div>
 
       <div class="row">
         <div class="col s4 " ng-repeat="savedComic in butt" on-last-repeat>
@@ -10,7 +10,7 @@
               <img class="materialboxed" width="650" ng-src="{{savedComic.thumbnail.path}}/portrait_incredible.jpg">
             </div> -->
             <div class="card-image">
-              <img class="materialboxed" data-caption="{{savedComic.name}}" width="650" ng-src="{{savedComic.thumbnail.path}}/portrait_incredible.{{savedComic.thumbnail.extension}}">
+              <img class="materialboxed" data-caption="{{savedComic.title}}" width="650" ng-src="{{savedComic.thumbnail.path}}/portrait_incredible.{{savedComic.thumbnail.extension}}">
               <!-- <span class="card-title"><p><strong>{{comic.name}}</strong></p></span> -->
             </div>
 
@@ -19,7 +19,6 @@
               <p>{{savedComic.description}}</p>
               <a class="btn-floating btn-medium waves-effect waves-light red" ng-click="deleteComicCall(savedComic)"><i class="material-icons">not_interested</i></a>
             </div>
-
             <div class="card-action">
               <a ng-href="{{savedComic.urls}}/{{url}}/{{type}}/{{$index}}/{{hash}}">wiki</a>
             </div>

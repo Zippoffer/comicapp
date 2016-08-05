@@ -1,7 +1,8 @@
-<nav ng-controller="loginRegisterCtrl" class="white container">
+<!-- <nav ng-controller="loginRegisterCtrl" class="white container side-nav" id="side-menu">
   <div class="nav-wrapper  red darken-1">
 
           <a class="brand-logo"><img src="http://www.ipadartroom.com/wp-content/uploads/2013/06/mzm.hkrpmtpr.175x175-75-150x150.jpg" alt="Yeeap"></a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 
         <ul id="nav-mobile" class="right">
 
@@ -15,17 +16,55 @@
 
           <li >
             <a ng-click="logout()"><i class="material-icons left">perm_identity</i>Logout/Login</a>
-          </li>
+          </li> -->
 
-          <!-- <li> -->
-            <!-- <a  ng-click="login()"><i class="material-icons left">perm_identity</i>Login</a> -->
-          <!-- </li> -->
+          <!-- <li><a  ng-click="login()"><i class="material-icons left">perm_identity</i>Login</a></li> -->
+            
+          
+
+        <!-- </ul> -->
+  <!-- </div> -->
+<!-- </nav> -->
+
+
+<nav ng-controller="loginRegisterCtrl" class="white container">
+
+  <div class="nav-wrapper  red darken-1">
+
+          <a class="brand-logo"><img src="http://www.ipadartroom.com/wp-content/uploads/2013/06/mzm.hkrpmtpr.175x175-75-150x150.jpg" alt="Yeeap"></a>
+
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <!-- These navigation links disappear if the screen gets too small. -->
+        <ul class="right hide-on-med-and-down">
+
+          <li><a ng-href="#/searchDatabase"><i class="material-icons left">search</i></a></li>
+          
+          <li><a ng-href="#/savedComics"><i class="material-icons left">view_quilt</i>Saved Comics</a></li>
+          
+          <li ><a ng-click="logout()"><i class="material-icons left">perm_identity</i>Logout/Login</a></li>
 
         </ul>
+    <!-- Put up a "hamburger" menu when the web page gets too narrow -->
+        <!-- <a href="#" data-activates="side-menu" ><i class="mdi-navigation-menu"></i></a> -->
+    <!-- These navigation links appear when the web page gets narrow. -->
+    <!-- They appear when the user clicks the hamburger menu. -->
+        <ul class="side-nav" id="mobile-demo">
+        <img class="spiderman" src="http://www.wymann.info/comics/Various/covers/EerieComics-01.jpg">
+          <li><a ng-href="#/searchDatabase"><i class="material-icons left">search</i></a></li>
+          
+          <li><a ng-href="#/savedComics"><i class="material-icons left">view_quilt</i>Saved Comics</a></li>
+          
+          <li ><a ng-click="logout()"><i class="material-icons left">perm_identity</i>Logout/Login</a></li>
+
+        </ul>
+
   </div>
+
 </nav>
 
 
-<!--  ng-href="#/logout" 
- ng-href="#/login" -->
-   <!-- button-collapse -->
+
+
+ <!-- ng-href="#/logout"  -->
+ <!-- ng-href="#/login" -->
+   <!-- button-collapse

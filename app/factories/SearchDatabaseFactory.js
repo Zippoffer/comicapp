@@ -8,7 +8,9 @@ app.factory("SearchDatabaseFactory", function($routeParams, $q, $http, LoginRegi
     let comicList = (searchText) => {
         return $q(function(resolve, reject) {
 
-            $http.get(`http://gateway.marvel.com:80/v1/public/characters?limit=100&nameStartsWith=${searchText}&=json&apikey=bf48bed3cb9a213603c0267fe6b78a65`) //the asterix allows for non-specific search
+            // $http.get(`http://gateway.marvel.com:80/v1/public/characters?limit=100&nameStartsWith=${searchText}&=json&apikey=bf48bed3cb9a213603c0267fe6b78a65`) //the asterix allows for non-specific search
+            // $http.get(`http://gateway.marvel.com:80/v1/public/comics?startYear=${searchText}&=json&apikey=bf48bed3cb9a213603c0267fe6b78a65`) //the asterix allows for non-specific search
+            $http.get(`http://gateway.marvel.com:80/v1/public/comics?limit=50&titleStartsWith=${searchText}&=json&apikey=bf48bed3cb9a213603c0267fe6b78a65`) //the asterix allows for non-specific search
             .success(function(comicData) {
                 console.log("comics from marvel", comicData);
                 resolve(comicData.data.results);
@@ -73,14 +75,28 @@ app.factory("SearchDatabaseFactory", function($routeParams, $q, $http, LoginRegi
                 });
         });
     };
-    ///////////delete function to be\\\\\\\\\\\\\\\\
+    //////////////***********typeahead**********\\\\\\\\\\\\\\\\
 
+    // var gatheredComics = new Bloodhound({
+    //     datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+    //     queryTokenizer: Bloodhound.tokenizers.whitespace,
+    //     prefetch: '../public/characters?.json',
+    //     remote: {
+    //         // url: '../data/films/queries/%QUERY.json',
+    //         url: '../public/characters?.json',
+    //         wildcard: '%QUERY'
+    //     }
+    // });
+
+
+    /////////////////**************typeahead*************\\\\\\\\\\\\\\\\\\\
 
     return {
         comicList: comicList,
         getComic: getComic,
         postNewComic: postNewComic,
         deleteComic: deleteComic
+        // gatheredComics: gatheredComics
     };
 });
 

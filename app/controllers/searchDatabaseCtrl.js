@@ -10,12 +10,44 @@ app.controller("searchDatabaseCtrl", function($scope, SearchDatabaseFactory, $lo
     });
 
 
+    ////////////*************AUTOCOMPLETE?**************\\\\\\\\\\\\\\\
+    // (function($scope, SearchDatabaseFactory, comicToSearch) {
+    //     $('input.autocomplete').autocomplete;
+    //     return {
+    //         SearchDatabase: function() {
+    //             return comicToSearch;
+    //         }
+    //     }
+    // })();
+
+
+    // (function() {
+    //     $('#remote .typeahead').typeahead(null, {
+    //         name: 'gathered-comics',
+    //         display: 'value',
+    //         source: SearchDatabaseFactory.gatheredComics
+    //     });
+    // })();
+
+
+
+
+    (function() {
+
+        $(".button-collapse").sideNav();
+
+    })();
+
+
+
+
     $scope.searchDatabase = function(comicToSearch) {
         SearchDatabaseFactory.comicList(comicToSearch).then(function(comicData) {
             console.log("in the controller i see comic data...", comicData);
             $scope.comics = comicData;
             console.log("comicscope", $scope.comics)
         })
+
     }
 
 
