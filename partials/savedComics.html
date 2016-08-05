@@ -9,16 +9,32 @@
             <!-- <div class="card-image">
               <img class="materialboxed" width="650" ng-src="{{savedComic.thumbnail.path}}/portrait_incredible.jpg">
             </div> -->
+
+<!-- class="materialboxed" data-caption="{{savedComic.title}}" width="650"  -->
+
             <div class="card-image">
-              <img class="materialboxed" data-caption="{{savedComic.title}}" width="650" ng-src="{{savedComic.thumbnail.path}}/portrait_incredible.{{savedComic.thumbnail.extension}}">
+              <img ng-src="{{savedComic.thumbnail.path}}/portrait_incredible.{{savedComic.thumbnail.extension}}">
               <!-- <span class="card-title"><p><strong>{{comic.name}}</strong></p></span> -->
             </div>
 
             <div class="card-content">
               <span><h5><strong>{{savedComic.name}}</strong></h5></span>
-              <p>{{savedComic.description}}</p>
+
+
+
+
+              <p id="description" tabindex="0">{{savedComic.description}}</p>
+
+
+
+
+<br>
+
+
               <a class="btn-floating btn-medium waves-effect waves-light red" ng-click="deleteComicCall(savedComic)"><i class="material-icons">not_interested</i></a>
             </div>
+
+ 
             <div class="card-action">
               <a ng-href="{{savedComic.urls}}/{{url}}/{{type}}/{{$index}}/{{hash}}">wiki</a>
             </div>
