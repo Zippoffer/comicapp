@@ -58,6 +58,9 @@ app.controller("searchDatabaseCtrl", function($scope, SearchDatabaseFactory, $lo
         let chosenComic = {};
         console.log("$indexValueofSumthin", $indexValueofSumthin)
         chosenComic.name = clickedComic.name;
+        chosenComic.title = clickedComic.title;
+        chosenComic.urls = clickedComic.urls;
+        chosenComic.images = clickedComic.images;
         chosenComic.description = clickedComic.description;
         chosenComic.id = clickedComic.id;
         chosenComic.thumbnail = clickedComic.thumbnail;

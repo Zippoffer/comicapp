@@ -32,7 +32,7 @@
                 <p>{{comic.description}}</p> -->
 
                 <!-- ************ for searching by comics **************** -->
-                <span><h5><strong>{{comic.title}}</strong></h5></span>
+                <span><h6><strong>{{comic.title}}</strong></h6></span>
 
                 <!-- <div id="description" tabindex="0">{{comic.description}}</div> -->
 
@@ -60,9 +60,12 @@
 
                                           <!-- fake modal -->
               <div class="fakeModal" ng-init="checked = false">
+                                  <!-- save button -->
+                <a class="btn-floating btn-medium waves-effect waves-light blue lighten-1" ng-click="saveComic($index)"><i class="material-icons">stars</i></a>
+                                  <!-- save button -->
                   <label>
                     <input type="checkbox" ng-model="checked" />
-                    fake modal
+                    BAM
                   </label>
                   <div class="content-area sample-show-hide" ng-show="checked">
                     {{comic.description}}
@@ -77,13 +80,12 @@
 
 
                 <!-- <p><a href="{{comic.resourceURI}}">resource</a></p> -->
-                <a class="btn-floating btn-medium waves-effect waves-light blue lighten-1" ng-click="saveComic($index)"><i class="material-icons">stars</i></a>
                 <!-- added stuff to save button -->
                 <!-- <a class="btn-floating btn-medium waves-effect waves-light red" ng-click="deleteComic(comicId)"><i class="material-icons">not_interested</i></a> -->
             </div>
 
             <div class="card-action">
-              <a ng-href="{{comic.urls[0].url}}">wiki</a>
+              <a ng-href="{{comic.urls[1].url}}">purchase</a>
             </div>
             
           </div>

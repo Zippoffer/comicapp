@@ -36,6 +36,9 @@ app.controller("loginRegisterCtrl", function($scope, LoginRegisterFactory, $rout
                 console.log(error);
             });
     };
+    // $scope.login = function() {
+    //     firebase.auth().signIn()
+    // }
     // $('.button-collapse').sideNav({
     //     menuWidth: 300, // Default is 240
     //     edge: 'left', // Choose the horizontal origin
