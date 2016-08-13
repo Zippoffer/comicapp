@@ -18,26 +18,47 @@
             </div>
 
             <div class="card-content">
-              <span><h5><strong>{{savedComic.name}}</strong></h5></span>
+              <span><h6><strong>{{savedComic.title}}</strong></h6></span>
 
 
 
 
-              <p id="description" tabindex="0">{{savedComic.description}}</p>
 
+              <!-- <p id="description" tabindex="0">{{savedComic.description}}</p> -->
+                                          <!-- fake modal -->
+              <div class="fakeModal" ng-init="checked = false">
+                                        <!-- delete button -->
+              <a class="btn-floating btn-medium waves-effect waves-light red" ng-click="deleteComicCall(savedComic)"><i class="material-icons">not_interested</i></a>
+                                  <!-- delete button -->
+                  <label class="saveLabel">
+                    <input type="checkbox" ng-model="checked" />
+                    ZAP
+                  </label>
+                  <div class="content-area sample-show-hide" ng-show="checked">
+                    {{savedComic.description}}
+                    <!-- <button type="button" ng-init="checked = false" ng-model="checked">button</button> -->
+                     <label>
+                    <input type="checkbox" ng-model="checked" />
+                    dismiss
+                  </label>
+                  </div>
+              </div>
+                        <!-- fake modal -->
 
 
 
 <br>
 
 
-              <a class="btn-floating btn-medium waves-effect waves-light red" ng-click="deleteComicCall(savedComic)"><i class="material-icons">not_interested</i></a>
             </div>
-
+<div>
+  {{savedComic.date}}
+</div>
  
             <div class="card-action">
-              <a ng-href="{{savedComic.urls}}/{{url}}/{{type}}/{{$index}}/{{hash}}">wiki</a>
+              <a ng-href="{{savedComic.urls[0].url}}">wiki</a>
             </div>
+         
           </div>
         </div>
       </div>

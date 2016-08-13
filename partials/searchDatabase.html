@@ -32,29 +32,9 @@
                 <p>{{comic.description}}</p> -->
 
                 <!-- ************ for searching by comics **************** -->
-                <span><h5><strong>{{comic.title}}</strong></h5></span>
+                <span><h6><strong>{{comic.title}}</strong></h6></span>
 
-                <div id="description" tabindex="0">{{comic.description}}</div>
-
-
-
-
-<!-- MODAL -->
-  <!-- Modal Trigger -->
-  <!-- <a class="waves-effect waves-light btn modal-trigger red" href="#modal1">description</a> -->
-  <!-- Modal Structure -->
-  <!-- <div id="modal1" class="modal" on-last-repeat> -->
-    <!-- <div class="modal-content"> -->
-<!-- <div  class="modal-content">{{comic.description}}</div> -->
-    <!-- </div> -->
-  <!-- </div> -->
-  <!-- MODAL -->
-
-
-
-
-
-
+                <!-- <div id="description" tabindex="0">{{comic.description}}</div> -->
 
 
 
@@ -64,14 +44,48 @@
                 <!-- <p>{{comic.format}}</p> -->
 
 
-                <!-- <p><a href="{{comic.resourceURI}}">resource</a></p> -->
+
+            <!--************* MODAL *************-->
+            <!-- Modal Trigger -->
+            <!-- <a class="btn-floating btn-medium waves-effect waves-light modal-trigger red" href="#modal1"><i class="material-icons">chat_bubble_outline</i></a> -->
+            <!-- Modal Structure -->
+            <!-- <div id="modal1" class="modal"> -->
+              <!-- <div class="modal-content"> -->
+                <!-- <div  class="modal-content">{{comic.description}}</div> -->
+              <!-- </div> -->
+            <!-- </div> -->
+            <!--************* MODAL *************-->
+
+
+
+                                          <!-- fake modal -->
+              <div class="fakeModal" ng-init="checked = false">
+                                  <!-- save button -->
                 <a class="btn-floating btn-medium waves-effect waves-light blue lighten-1" ng-click="saveComic($index)"><i class="material-icons">stars</i></a>
+                                  <!-- save button -->
+                  <label>
+                    <input type="checkbox" ng-model="checked" />
+                    BAM
+                  </label>
+                  <div class="content-area sample-show-hide" ng-show="checked">
+                    {{comic.description}}
+                    <!-- <button type="button" ng-init="checked = false" ng-model="checked">button</button> -->
+                     <label>
+                    <input type="checkbox" ng-model="checked" />
+                    dismiss
+                  </label>
+                  </div>
+              </div>
+                        <!-- fake modal -->
+
+
+                <!-- <p><a href="{{comic.resourceURI}}">resource</a></p> -->
                 <!-- added stuff to save button -->
                 <!-- <a class="btn-floating btn-medium waves-effect waves-light red" ng-click="deleteComic(comicId)"><i class="material-icons">not_interested</i></a> -->
             </div>
 
             <div class="card-action">
-              <a ng-href="{{comic.urls[0].url}}">wiki</a>
+              <a ng-href="{{comic.urls[1].url}}">purchase</a>
             </div>
             
           </div>

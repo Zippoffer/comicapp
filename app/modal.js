@@ -4,11 +4,20 @@
 
 // /////////************angular directive****************\\\\\\\\\
 
-// app.directive('box', function() {
+// app.directive('onLastRepeat', function() {
 //     return function(scope, element, attrs) {
 //         if (scope.$last)
 //             setTimeout(function() {
-//                 scope.$emit('xob', element, attrs);
+//                 scope.$emit('onRepeatLast', element, attrs);
+//             }, 1);
+//     };
+// });
+
+// app.directive('onFirstRepeat', function() {
+//     return function(scope, element, attrs) {
+//         if (scope.$last)
+//             setTimeout(function() {
+//                 scope.$emit('onRepeatFirst', element, attrs);
 //             }, 1);
 //     };
 // });

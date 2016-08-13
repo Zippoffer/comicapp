@@ -11,23 +11,23 @@ app.controller("searchDatabaseCtrl", function($scope, SearchDatabaseFactory, $lo
 
 
 
-    $scope.$on('onRepeatLast', function(scope, element, attrs) {
-        $('.modal-trigger').leanModal({
-            dismissible: true, // Modal can be dismissed by clicking outside of the modal
-            opacity: .5, // Opacity of modal background
-            in_duration: 300, // Transition in duration
-            out_duration: 200, // Transition out duration
-            starting_top: '4%', // Starting top style attribute
-            ending_top: '10%', // Ending top style attribute
-            // ready: function() {
-            //     alert('Ready');
-            // }, // Callback for Modal open
-            // complete: function() {
-            //     alert('Closed');
-            // } // Callback for Modal close
-        });
-
-    });
+    // $scope.$on('onRepeatLast', function(scope, element, attrs) {
+    // $('.modal-trigger').leanModal({
+    // dismissible: true, // Modal can be dismissed by clicking outside of the modal
+    // opacity: .5, // Opacity of modal background
+    // in_duration: 300, // Transition in duration
+    // out_duration: 200, // Transition out duration
+    // starting_top: '4%', // Starting top style attribute
+    // ending_top: '10%', // Ending top style attribute
+    // ready: function() {
+    //     alert('Ready');
+    // }, // Callback for Modal open
+    // complete: function() {
+    //     alert('Closed');
+    // } // Callback for Modal close
+    // });
+    // 
+    // });
 
 
     (function() {
@@ -43,6 +43,9 @@ app.controller("searchDatabaseCtrl", function($scope, SearchDatabaseFactory, $lo
         SearchDatabaseFactory.comicList(comicToSearch).then(function(comicData) {
             console.log("in the controller i see comic data...", comicData);
             $scope.comics = comicData;
+            // if ($scope.comics !== comicData) {
+            //     alert("nothing here fool!");
+            // }
             console.log("comicscope", $scope.comics)
         })
 
@@ -55,6 +58,9 @@ app.controller("searchDatabaseCtrl", function($scope, SearchDatabaseFactory, $lo
         let chosenComic = {};
         console.log("$indexValueofSumthin", $indexValueofSumthin)
         chosenComic.name = clickedComic.name;
+        chosenComic.title = clickedComic.title;
+        chosenComic.urls = clickedComic.urls;
+        chosenComic.images = clickedComic.images;
         chosenComic.description = clickedComic.description;
         chosenComic.id = clickedComic.id;
         chosenComic.thumbnail = clickedComic.thumbnail;
