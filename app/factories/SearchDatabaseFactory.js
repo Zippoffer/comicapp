@@ -11,7 +11,7 @@ app.factory("SearchDatabaseFactory", function($routeParams, $q, $http, LoginRegi
             // $http.get(`http://gateway.marvel.com:80/v1/public/characters?limit=100&nameStartsWith=${searchText}&=json&apikey=bf48bed3cb9a213603c0267fe6b78a65`) //the asterix allows for non-specific search
             // $http.get(`http://gateway.marvel.com:80/v1/public/comics?startYear=${searchText}&=json&apikey=bf48bed3cb9a213603c0267fe6b78a65`) //the asterix allows for non-specific search
             // $http.get(`http://gateway.marvel.com:80/v1/public/comics?limit=50&titleStartsWith=${searchText}&=json&apikey=bf48bed3cb9a213603c0267fe6b78a65`) //the asterix allows for non-specific search
-            $http.get(`http://gateway.marvel.com:80/v1/public/comics?limit=50&titleStartsWith=${searchText}&=json&apikey=bf48bed3cb9a213603c0267fe6b78a65`) //the asterix allows for non-specific search
+            $http.get(`http://gateway.marvel.com:80/v1/public/comics?limit=25&titleStartsWith=${searchText}&=json&apikey=bf48bed3cb9a213603c0267fe6b78a65`) //the asterix allows for non-specific search
             .success(function(comicData) {
                 console.log("comics from marvel", comicData);
                 resolve(comicData.data.results);

@@ -15,12 +15,13 @@
 <!-- ============= CARDS TO HOLD COMICS ============= -->
 
       <div class="row">
-        <div class="col s4 " ng-repeat="comic in comics" on-last-repeat>
+      
+        <div class="col s12 m4" ng-repeat="comic in comics" on-last-repeat>
           <div class="card">
 
             <div class="card-image">
 
-              <img class="materialboxed" data-caption="{{comic.title}}" width="650" ng-src="{{comic.thumbnail.path}}/portrait_incredible.{{comic.thumbnail.extension}}">
+              <img class="materialboxed" data-caption="{{comic.title}}" width="650" ng-src="{{comic.thumbnail.path}}/portrait_uncanny.{{comic.thumbnail.extension}}">
               <!-- <span class="card-title"><p><strong>{{comic.name}}</strong></p></span> -->
             </div>
 
@@ -38,7 +39,7 @@
 
 
 
-                <p>{{comic.prices[0].type}}-{{comic.prices[0].price}}</p>
+               <!--  <p>{{comic.prices[0].type}}-{{comic.prices[0].price}}</p> -->
                 <!-- <p>{{comic.prices[1].type}}-{{comic.prices[1].price}}</p> -->
                 <!-- <p>{{comic.dates[0].type}}-{{comic.dates[0].date}}</p> -->
                 <!-- <p>{{comic.format}}</p> -->
@@ -61,7 +62,7 @@
                                           <!-- fake modal -->
               <div class="fakeModal" ng-init="checked = false">
                                   <!-- save button -->
-                <a class="btn-floating btn-medium waves-effect waves-light blue lighten-1" ng-click="saveComic($index)"><i class="material-icons">stars</i></a>
+                <a class="btn-floating btn-medium waves-effect waves-light blue lighten-1" ng-click="saveComic($index)" onclick="Materialize.toast('You Saved Me!!', 4000, 'indigo accent-1')"><i class="material-icons">stars</i></a>
                                   <!-- save button -->
                   <label>
                     <input type="checkbox" ng-model="checked" />
@@ -75,20 +76,22 @@
                     dismiss
                   </label>
                   </div>
+
+            <span class="card-action hide-on-small-only">
+              <a ng-href="{{comic.urls[1].url}}" target="blank">purchase</a>
+            </span>
               </div>
                         <!-- fake modal -->
 
-
+ <p class="hide-on-small-only">{{comic.prices[0].type}}-{{comic.prices[0].price}}</p>
                 <!-- <p><a href="{{comic.resourceURI}}">resource</a></p> -->
                 <!-- added stuff to save button -->
                 <!-- <a class="btn-floating btn-medium waves-effect waves-light red" ng-click="deleteComic(comicId)"><i class="material-icons">not_interested</i></a> -->
             </div>
 
-            <div class="card-action">
-              <a ng-href="{{comic.urls[1].url}}">purchase</a>
-            </div>
             
           </div>
         </div>
+        
       </div>
             

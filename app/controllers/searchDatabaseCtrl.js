@@ -11,6 +11,15 @@ app.controller("searchDatabaseCtrl", function($scope, SearchDatabaseFactory, $lo
 
 
 
+
+    (function() {
+        $(document).ready(function() {
+            $('.carousel').carousel();
+        });
+    })();
+
+
+
     // $scope.$on('onRepeatLast', function(scope, element, attrs) {
     // $('.modal-trigger').leanModal({
     // dismissible: true, // Modal can be dismissed by clicking outside of the modal

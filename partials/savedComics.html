@@ -1,9 +1,9 @@
 <!-- this is where I would like my saved cards to display -->
 
 <div class="row"></div>
-
       <div class="row">
-        <div class="col s4 " ng-repeat="savedComic in butt" on-last-repeat>
+
+        <div class="col s12 m4" ng-repeat="savedComic in butt" on-last-repeat>
           <div class="card">
 
             <!-- <div class="card-image">
@@ -13,7 +13,7 @@
 <!-- class="materialboxed" data-caption="{{savedComic.title}}" width="650"  -->
 
             <div class="card-image">
-              <img ng-src="{{savedComic.thumbnail.path}}/portrait_incredible.{{savedComic.thumbnail.extension}}">
+              <img ng-src="{{savedComic.thumbnail.path}}/portrait_uncanny.{{savedComic.thumbnail.extension}}">
               <!-- <span class="card-title"><p><strong>{{comic.name}}</strong></p></span> -->
             </div>
 
@@ -22,13 +22,13 @@
 
 
 
-
+<br>
 
               <!-- <p id="description" tabindex="0">{{savedComic.description}}</p> -->
                                           <!-- fake modal -->
               <div class="fakeModal" ng-init="checked = false">
                                         <!-- delete button -->
-              <a class="btn-floating btn-medium waves-effect waves-light red" ng-click="deleteComicCall(savedComic)"><i class="material-icons">not_interested</i></a>
+              <a class="btn-floating btn-medium waves-effect waves-light red" ng-click="deleteComicCall(savedComic)" onclick="Materialize.toast('You Deleted Me!!', 4000, 'indigo accent-1')"><i class="material-icons">not_interested</i></a>
                                   <!-- delete button -->
                   <label class="saveLabel">
                     <input type="checkbox" ng-model="checked" />
@@ -42,25 +42,31 @@
                     dismiss
                   </label>
                   </div>
+            <span class="card-action center">
+              <a ng-href="{{savedComic.urls[1].url}}" target="blank">Purchase</a>
+            </span>
               </div>
                         <!-- fake modal -->
 
+                        
 
 
-<br>
+<!-- <br> -->
 
 
             </div>
-<div>
-  {{savedComic.date}}
-</div>
+
+            <div>
+              <!-- {{savedComic.date}} -->
+            </div>
  
-            <div class="card-action">
-              <a ng-href="{{savedComic.urls[0].url}}">wiki</a>
-            </div>
-         
+ 
+
+
+
           </div>
         </div>
+
       </div>
 
 

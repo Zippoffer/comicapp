@@ -22,8 +22,9 @@ body {
   position: relative; }
 
 .card {
-  height: 750px;
-  overflow: visible; }
+  height: 680px;
+  overflow: visible;
+  padding: 4% 0 4% 0; }
 
 .spiderman {
   height: 290px;
@@ -55,3 +56,8 @@ body {
 
 label {
   color: red; }
+
+.rounded {
+  height: 100px;
+  width: 100px;
+  border-radius: 200px; }
